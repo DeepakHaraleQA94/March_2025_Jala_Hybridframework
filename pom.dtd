@@ -1,0 +1,5 @@
+<!ELEMENT project (#PCDATA|modelVersion|groupId|artifactId|version)*>
+<!ELEMENT modelVersion (#PCDATA)>
+<!ELEMENT groupId (#PCDATA)>
+<!ELEMENT artifactId (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
