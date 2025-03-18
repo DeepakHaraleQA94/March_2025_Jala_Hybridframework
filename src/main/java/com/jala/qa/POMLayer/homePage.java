@@ -21,6 +21,15 @@ public class homePage extends testBase1 {
 	@FindBy(linkText = "http://jalatechnologies.com")
 	WebElement linkOfHomePage;
 	
+	@FindBy(linkText = "Employee")
+	WebElement employeeTab;
+	
+	@FindBy(linkText = "Create")
+	WebElement createTab;
+	
+	
+	@FindBy(linkText = "Search")
+	WebElement searchtab;
 	public String getHomePageText() {
 		String getText = homePageText.getText();
 		
@@ -32,5 +41,10 @@ public class homePage extends testBase1 {
 		String getTextLink = linkOfHomePage.getText();
 		
 		return getTextLink;
+	}
+	
+	public void clickOnCreateTab() {
+		employeeTab.click();
+		createTab.click();
 	}
 }
