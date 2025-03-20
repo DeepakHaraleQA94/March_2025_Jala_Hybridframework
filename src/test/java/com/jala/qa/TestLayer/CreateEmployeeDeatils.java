@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.jala.qa.POMLayer.CreateEmployeePage;
@@ -31,11 +32,18 @@ public class CreateEmployeeDeatils extends testBase1{
 	  emp = new CreateEmployeePage();
 	}
 	
-	@Test
-	public void validateEmplyeeDetails() throws InterruptedException {
+	@DataProvider
+	public Object[][] getData() {
+		Object[][] data = {{"dipak","abc"},
+						{"dipak1","abc1"}};
+		return data;
+	}
+	
+	@Test(dataProvider = "getData")
+	public void validateEmplyeeDetails(String Fname, String Lname) throws InterruptedException {
 		home.clickOnCreateTab();
-		emp.enterFirstName("jonh");
-		emp.enterLastName("siman");
+		emp.enterFirstName(Fname);
+		emp.enterLastName(Lname);
 		emp.enterMailId("abc@gmail.com");
 		emp.enterMobileNumber("8979879686");
 		emp.enterDOB("09/04/1998");
