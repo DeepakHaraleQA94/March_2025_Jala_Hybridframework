@@ -47,4 +47,9 @@ public class homePage extends testBase1 {
 		employeeTab.click();
 		createTab.click();
 	}
+	
+	public void clickOnSearchTab() {
+		employeeTab.click();
+		searchtab.click();
+	}
 }

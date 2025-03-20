@@ -1,4 +1,4 @@
-package com.jala.qa.TestDataLayer;
+package com.jala.qa.TestLayer;
 
 import java.io.IOException;
 
