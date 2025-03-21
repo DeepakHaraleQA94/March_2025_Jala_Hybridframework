@@ -14,10 +14,12 @@ import com.jala.qa.POMLayer.CreateEmployeePage;
 import com.jala.qa.POMLayer.LoginPage;
 import com.jala.qa.POMLayer.homePage;
 import com.jala.qa.TesBaseLayer.testBase1;
+import com.jala.qa.utilityLayer.getDataFromExcel;
 
 public class CreateEmployeeDeatils extends testBase1{
 	homePage home ;
 	CreateEmployeePage emp;
+	getDataFromExcel data;
 	public CreateEmployeeDeatils() throws IOException {
 		super();
 		// TODO Auto-generated constructor stub
@@ -32,26 +34,38 @@ public class CreateEmployeeDeatils extends testBase1{
 	  emp = new CreateEmployeePage();
 	}
 	
+//	@DataProvider
+//	public Object[][] getData() {
+//		Object[][] data = {{"dipak","abc"},
+//						{"dipak1","abc1"}};
+//		return data;
+//	}
 	@DataProvider
-	public Object[][] getData() {
-		Object[][] data = {{"dipak","abc"},
-						{"dipak1","abc1"}};
-		return data;
+	
+	public Object[][] getData() throws IOException {
+		  data = new getDataFromExcel();
+		Object[][] fetchData = data.getExcelData("Sheet2");
+//		System.out.println(fetchData);
+		return fetchData;
 	}
 	
-	@Test(dataProvider = "getData")
-	public void validateEmplyeeDetails(String Fname, String Lname) throws InterruptedException {
+	@Test(dataProvider = "getData", enabled = true)
+	public void validateEmplyeeDetails(String Fname, String Lname, String email, 
+			String MoNo,String DOB,String gender, String address, String country,String city,
+			String skills) throws InterruptedException {
 		home.clickOnCreateTab();
 		emp.enterFirstName(Fname);
 		emp.enterLastName(Lname);
-		emp.enterMailId("abc@gmail.com");
-		emp.enterMobileNumber("8979879686");
-		emp.enterDOB("09/04/1998");
-		emp.selectMaleOption();
-		emp.enterAddress("pune");
-		emp.selectCountryname("India");
-		emp.selectCityName("Mumbai");
-		emp.selectSkills();
+		emp.enterMailId(email);
+		emp.enterMobileNumber(MoNo);
+		emp.enterDOB(DOB);
+		emp.selctgender(gender);
+		emp.enterAddress(address);
+		holdTime();
+		emp.selectCountryname(country);
+		emp.selectCityName(city);
+		emp.selectSkillSet(skills);
+		holdTime();
 		emp.clickOnSaveButton();
 		holdTime();
 		String actualTitle = driver.getTitle();

@@ -50,8 +50,41 @@ public class CreateEmployeePage extends testBase1{
 	@FindBy(id = "chkSkill_1")
 	WebElement QA_Automation;
 	
+	@FindBy(id="chkSkill_5")
+	WebElement AWS;
+	
+	@FindBy(id="chkSkill_3")
+	WebElement DevOps;
+	
+	@FindBy(id = "chkSkill_2")
+	WebElement  fullStackDeveloper;
+	
+	@FindBy(id="chkSkill_4")
+	WebElement Middleware;
+	
+	@FindBy(id = "chkSkill_6")
+	WebElement WebServices;
+	
+	
 	@FindBy(xpath = "//button[text()='Save']")
 	WebElement saveBtn;
+	
+	public void selectSkillSet(String skill) {
+		
+		if(skill.equals("AWS")) {
+			AWS.click();
+		}else if(skill.equals("DevOps")) {
+			DevOps.click();
+		}else if(skill.equals("QA-Automation")) {
+			QA_Automation.click();
+		}
+		else if(skill.equals("WebServices")) {
+			WebServices.click();
+		}else if(skill.equals("Middleware")) {
+			Middleware.click();
+		}
+		
+	}
 	
 	public void enterFirstName(String fname) {
 		firstName.sendKeys(fname);
@@ -73,6 +106,14 @@ public class CreateEmployeePage extends testBase1{
 		dob.sendKeys(DOB);
 	}
 	
+	public void selctgender(String gender) {
+		if(gender.equals("male")) {
+			male.click();
+		}
+		else {
+			feMale.click();
+		}
+	}
 	public void selectMaleOption() {
 		male.click();
 	}
