@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class getDataFromExcel {
 
 	
-	@Test
+
 	public Object[][] getExcelData(String sheetNum) throws IOException {
 		String path ="C:\\Users\\Sarvadnya\\eclipse-workspace\\March2025_NewProject\\March_2025_Jala_Hybridframework\\src\\test\\java\\com\\jala\\qa\\DataLayer\\EmployeeData.xlsx";
 		FileInputStream pathOfExcel = new FileInputStream(path);

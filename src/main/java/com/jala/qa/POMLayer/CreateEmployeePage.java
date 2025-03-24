@@ -107,7 +107,7 @@ public class CreateEmployeePage extends testBase1{
 	}
 	
 	public void selctgender(String gender) {
-		if(gender.equals("male")) {
+		if(gender.equals("Male")) {
 			male.click();
 		}
 		else {

@@ -8,6 +8,7 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.jala.qa.POMLayer.CreateEmployeePage;
@@ -15,7 +16,9 @@ import com.jala.qa.POMLayer.LoginPage;
 import com.jala.qa.POMLayer.homePage;
 import com.jala.qa.TesBaseLayer.testBase1;
 import com.jala.qa.utilityLayer.getDataFromExcel;
+import com.jala.qa.utilityLayer.listnerClass;
 
+@Listeners(listnerClass.class)
 public class CreateEmployeeDeatils extends testBase1{
 	homePage home ;
 	CreateEmployeePage emp;
